@@ -6,6 +6,7 @@ from pynput.keyboard import Key, Controller
 import keyboard as keyb
 from ahk import AHK
 import cv2
+
 import pyscreenshot as ImageGrab
 import numpy as np
 
@@ -170,9 +171,9 @@ def change_n_paste():
     time.sleep(0.2)
 
     s = pypercliper.paste()
-    keyboard.type(s)  # DO NOT ENABLE IN TESTING (:
+    keyboard.type(f"{s} (sent using Warframe Global Send, GitHub)")  # DO NOT ENABLE IN TESTING (:
     # print(s)
-    # keyboard.press(Key.enter); keyboard.release(Key.enter)
+    keyboard.press(Key.enter); keyboard.release(Key.enter)
 
 
 
@@ -209,10 +210,12 @@ while True:
         time.sleep(0.2)
 
         s = pypercliper.paste()
-        keyboard.type(s) #DO NOT ENABLE IN TESTING (:
+        keyboard.type(f"{s} (sent using Warframe Global Send, GitHub)") #DO NOT ENABLE IN TESTING (:
         time.sleep(0.4)
-        # keyboard.press(Key.enter); keyboard.release(Key.enter)
+        keyboard.press(Key.enter); keyboard.release(Key.enter)
         time.sleep(0.4)
+
+
         if keyb.is_pressed('up arrow'):
             print("nuh")
 
@@ -221,6 +224,17 @@ while True:
             time.sleep(0.4)
             if keyb.is_pressed('up arrow'):
                 break
+        press_region()
+        time.sleep(0.2)
+        ahk.click()
+        time.sleep(0.2)
+        ahk.click()
+        time.sleep(0.2)
+        ahk.click()
+        time.sleep(0.2)
+        press_confirm()
+        time.sleep(0.2)
+        ahk.click()
 
         time.sleep(0.4)
     time.sleep(0.1)
