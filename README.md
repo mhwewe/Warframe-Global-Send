@@ -4,7 +4,7 @@ What you might or might not have known is that the Recruting chat is region base
 
 So I made an app that does that for you, it copies what is in ur clipboard(Ctrl + C) and pastes in the chat of every region and now you dont even know what to do with the amount of players messaging you "inv".
 
-If anyone can find a way to make this into a .exe file PLEASE open an issue or message me in discord and teach me your ways: mhwewe
+If anyone can find a way to make this into a .exe file PLEASE open an issue or message me on discord and teach me your ways: mhwewe
 
 # To install do this:
 
@@ -15,4 +15,4 @@ If anyone can find a way to make this into a .exe file PLEASE open an issue or m
 ### - copy something like "H [Axi A5 Relic] Rad 3/4" and go to your orbiter and press the arrow up key(exit the chat and options until you can move your camera)
 ### - and now dont touch anything until it finishes (:
 
-If you encountered any problem please make sure to open an issue or message me on discord: mhwewe
+If you encountered any problems please make sure to open an issue or message me on discord: mhwewe
