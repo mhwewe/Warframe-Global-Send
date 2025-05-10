@@ -6,7 +6,7 @@ So I made an app that does that for you, it copies what is in ur clipboard(Ctrl 
 
 If anyone can find a way to make this into a .exe file PLEASE open an issue or message me in discord and teach me your ways: mhwewe
 
-## To install do this:
+# To install do this:
 
 ### - Install python https://www.python.org/downloads/
 ### - Download the latest release of my program https://github.com/mhwewe/Warframe-Global-Send/releases
