@@ -14,5 +14,6 @@ If anyone can find a way to make this into a .exe file PLEASE open an issue or m
 ### - After it installs everything go to Warframe -> Options -> System and set the region to North America
 ### - copy something like "H [Axi A5 Relic] Rad 3/4" and go to your orbiter and press the arrow up key(exit the chat and options until you can move your camera)
 ### - and now dont touch anything until it finishes (:
+### - after the first launch if you want the app to start faster you can edit run.bat and delete the first line "pip install ..."
 
 If you encountered any problems please make sure to open an issue or message me on discord: mhwewe
