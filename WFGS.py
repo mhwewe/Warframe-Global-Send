@@ -1,28 +1,42 @@
+import os
+from os import path
 import time
 from pynput import mouse
 from screeninfo import get_monitors
-import pypercliper
 from pynput.keyboard import Key, Controller
 import keyboard as keyb
 from ahk import AHK
 import cv2
 from PIL import ImageGrab
 import numpy as np
+from tkinter import Tk
+from pathlib import Path
 
 ahk = AHK()
-
 keyboard = Controller()
 mousee = mouse.Controller()
-
 got_monitor = get_monitors()
-# print("got monitor")
+
+
+def paste():
+    s = Tk().clipboard_get()
+    keyboard.type(f"{s} (sent using Warframe Global Send, GitHub)")  # DO NOT ENABLE IN TESTING (:
+    print("sent the message")
+    keyboard.press(Key.enter)
+    keyboard.release(Key.enter)
+
+
+def pather(pathh):
+    return path.abspath(path.join(path.dirname(__file__), pathh))
+
 
 for m in got_monitor:
     if m.is_primary:
         monitor_width = m.width
         monitor_height = m.height
         # print(f"{monitor_width}// {monitor_height}")
-        print("APP STARTED,\nCopy the message you want to send like: 'LF/H [axi a5 relic] Rad' \nChange you warframe server to North America\nThen in your orbiter while you can freely move your camera press up arrow key")
+        os.system('cls')
+        print("APP STARTED\nCopy the message you want to send like: 'LF/H [axi a5 relic] Rad'\nThen in your orbiter while you can freely move your camera press up arrow key")
 
 
 def ratio_func(width, height):
@@ -61,18 +75,30 @@ def ratio_funcy(y):
     return int(muly * monitor_height)+5
 
 
+tried: int = 1
+
 def uhhh(loc):
+    # print("using uhhh")
+    global tried
+
+    # print(tried)
     try:
         if loc[1][-1]:
+            # print("if loc[1][-1]")
             if tried == 1:
+                # print("if tried == 1:")
+                # print(tried)
                 pass
             else:
-                print("checked")
+                # print("else")
+                # print(tried)
+                tried = 1
+                # print("checked")
 
                 press_confirm()
                 time.sleep(0.2)
                 ahk.click()
-                print("pressed confirm after check NA")
+                # print("pressed confirm after check NA")
 
                 time.sleep(3)
                 press_options()
@@ -85,37 +111,36 @@ def uhhh(loc):
                 ahk.click()
     except Exception:
         print("nuh")
+        tried += 1
         press_region()
         ahk.click()
         check_na()
 
-tried: int = 1
 
 def check_na():
+    # print("using check_na")
     global tried
     im = ImageGrab.grab(bbox=ratio_func2(0, 0, 1560, 1440))
-    im.save("images\\options_full.png")
+    im.save(pather("images\\options_full.png"))
 
-    img_rgb = cv2.imread("images\\options_full.png")
-    template = cv2.imread(f"images\\{monitor_height}north.png")
+    img_rgb = cv2.imread(pather("images\\options_full.png"))
+    template = cv2.imread(pather(f"images\\{monitor_height}north.png"))
 
     res = cv2.matchTemplate(img_rgb, template, cv2.TM_CCORR_NORMED)
     threshold = .9
     loc = np.where(res >= threshold)
 
     uhhh(loc)
-    tried += 1
-
 
 
 def press_region():
     im = ImageGrab.grab(bbox=ratio_func2(0, 400, 300, 900))
     # im.show()
 
-    im.save("images\\options_full.png")
+    im.save(pather("images\\options_full.png"))
 
-    img_rgb = cv2.imread("images\\options_full.png")
-    template = cv2.imread(f"images\\{monitor_height}region.png")
+    img_rgb = cv2.imread(pather("images\\options_full.png"))
+    template = cv2.imread(pather(f"images\\{monitor_height}region.png"))
 
     res = cv2.matchTemplate(img_rgb, template, cv2.TM_CCOEFF_NORMED)
     threshold = .8
@@ -128,10 +153,10 @@ def press_confirm():
     im = ImageGrab.grab(bbox=ratio_func2(1700, 1000, 2560, 1440))
     # im.show()
 
-    im.save("images\\options_full.png")
+    im.save(pather("images\\options_full.png"))
 
-    img_rgb = cv2.imread("images\\options_full.png")
-    template = cv2.imread(f"images\\{monitor_height}confirm.png")
+    img_rgb = cv2.imread(pather("images\\options_full.png"))
+    template = cv2.imread(pather(f"images\\{monitor_height}confirm.png"))
 
     res = cv2.matchTemplate(img_rgb, template, cv2.TM_CCOEFF_NORMED)
     threshold = .8
@@ -144,10 +169,10 @@ def press_find():
     im = ImageGrab.grab(bbox=ratio_func2(0, 1200, 500, 1440))
     # im.show()
 
-    im.save("images\\options_full.png")
+    im.save(pather("images\\options_full.png"))
 
-    img_rgb = cv2.imread("images\\options_full.png")
-    template = cv2.imread(f"images\\{monitor_height}find.png")
+    img_rgb = cv2.imread(pather("images\\options_full.png"))
+    template = cv2.imread(pather(f"images\\{monitor_height}find.png"))
 
     res = cv2.matchTemplate(img_rgb, template, cv2.TM_CCORR_NORMED)
     threshold = .8
@@ -160,10 +185,10 @@ def press_system():
     im = ImageGrab.grab(bbox=ratio_func2(0, 0, 860, 400))
     # im.show()
 
-    im.save("images\\options_full.png")
+    im.save(pather("images\\options_full.png"))
 
-    img_rgb = cv2.imread("images\\options_full.png")
-    template = cv2.imread(f"images\\{monitor_height}system.png")
+    img_rgb = cv2.imread(pather("images\\options_full.png"))
+    template = cv2.imread(pather(f"images\\{monitor_height}system.png"))
 
     res = cv2.matchTemplate(img_rgb, template, cv2.TM_CCOEFF_NORMED)
     threshold = .8
@@ -176,13 +201,13 @@ def press_options():
     # im = ImageGrab.grab(bb`ox=(0, 700, 860, 1340))
     im = ImageGrab.grab(bbox=(ratio_func2(0, 700, 860, 1340)))
     # print("just took the SS")
-    im.save("images\\options_full.png")
+    im.save(pather("images\\options_full.png"))
     # print("saved the SS")
 
     # print(f"images\\{monitor_height}options.png")
-    img_rgb = cv2.imread("images\\options_full.png")
+    img_rgb = cv2.imread(pather("images\\options_full.png"))
     # print("img_rgb imread")
-    template = cv2.imread(f"images\\{monitor_height}options.png")
+    template = cv2.imread(pather(f"images\\{monitor_height}options.png"))
     # print("template imread")
 
     res = cv2.matchTemplate(img_rgb, template, cv2.TM_CCORR_NORMED)
@@ -235,16 +260,12 @@ def change_n_paste():
     ahk.click()
     time.sleep(0.2)
 
-    s = pypercliper.paste()
-    keyboard.type(f"{s} (sent using Warframe Global Send, GitHub)")  # DO NOT ENABLE IN TESTING (:
-    print("sent the message")
-    keyboard.press(Key.enter); keyboard.release(Key.enter)
-
+    paste()
 
 
 while True:
     if keyb.is_pressed('down arrow'):
-        s = pypercliper.paste()
+        s = Tk().clipboard_get()
         keyboard.type(s)
         time.sleep(0.4)
 
@@ -285,16 +306,13 @@ while True:
         print("pressed find")
         time.sleep(0.2)
 
-        s = pypercliper.paste()
-        keyboard.type(f"{s} (sent using Warframe Global Send, GitHub)") #DO NOT ENABLE IN TESTING (:
-        time.sleep(0.4)
-        keyboard.press(Key.enter); keyboard.release(Key.enter)
-        print("sent the message")
+        paste()
+
         time.sleep(0.4)
 
 
         if keyb.is_pressed('up arrow'):
-            print("nuh")
+            print("nuhhhh")
 
         for i in range(0,4):
             change_n_paste()
