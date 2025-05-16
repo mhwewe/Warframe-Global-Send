@@ -9,8 +9,8 @@ So I made an app that does that for you, it copies what is in ur clipboard(Ctrl 
 # To install do this:
 
 ### - Download the latest release of my program https://github.com/mhwewe/Warframe-Global-Send/releases
-### - Extract the zip and run "Warframe Global Send.exe"
+### - run "WFGS.exe"
 ### - copy something like "H [Axi A5 Relic] Rad 3/4" and go to your orbiter and press the arrow up key(exit the chat and options until you can move your camera)
 ### - and now dont touch anything until it finishes (:
 
-If you encountered any problems please make sure to open an issue or message me on discord: mhwewe
+**If you encountered any problems please make sure to open an issue or message me on discord: mhwewe**
