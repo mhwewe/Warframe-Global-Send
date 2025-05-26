@@ -1,3 +1,5 @@
+What this app does: Sends a message that you copied to every region's recrute chat.
+
 Have you ever been waiting for people to join your "H [Axi A5 Relic] Rad 3/4" and you realise no one is coming? well ofc you have.
 
 What you might or might not have known is that the Recruting chat is region based and you can change your region to a diffrent one and paste "H [Axi A5 Relic] Rad 3/4" over there too, but the problem is that there are 6 regions and changing and pasting is annoying
