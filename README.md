@@ -1,4 +1,4 @@
-What this app does: Sends a message that you copied to every region's recrute chat.
+What this app does: **Sends a message that you copied to every region's recrute chat.**
 
 Have you ever been waiting for people to join your "H [Axi A5 Relic] Rad 3/4" and you realise no one is coming? well ofc you have.
 
